@@ -1,34 +1,56 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import About from "./components/About";
+import Banner from "./components/Banner";
+import Button from "./components/Button";
+import DoubleText from "./components/DoubleText";
+import Header from "./components/Header";
+import Navbar from "./components/Navbar";
+import ProgressBar from "./components/ProgressBar";
+
+const doubleTexts = [
+  {
+    text1: "$89,914",
+    text2: "of $100,000 backed",
+    withLine: true,
+  },
+  {
+    text1: "5,007",
+    text2: "total backers",
+    withLine: true,
+  },
+  {
+    text1: "56",
+    text2: "days left",
+    withLine: false,
+  },
+];
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    <>
+      <Navbar />
+      <Banner />
+
+      <main className="container relative -top-9 space-y-8">
+        <Header />
+
+        <div className="w-11/12 mx-auto bg-white flex flex-col items-center border border-slate-200 text-center rounded-lg space-y-6 py-12">
+        {doubleTexts.map((doubleText, index) => (
+          <DoubleText
+            key={index}
+            text1={doubleText.text1}
+            text2={doubleText.text2}
+            withLine={doubleText.withLine}
+          />
+        ))}
+        <ProgressBar />
+        </div>
+
+        <About />
+      </main>
+    </>
+  );
 }
 
-export default App
+export default App;
