@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import IconBookmark from "../assets/images/icon-bookmark";
 
 import logoSection from "../assets/images/logo-mastercraft.svg";
 import Button from "./Button";
 
 const Header = () => {
+  const [isClicked, setIsClicked] = useState(false);
+
+  const toggleBookmark = () => {
+    setIsClicked(!isClicked);
+  };
+
   return (
     <div className="w-11/12 mx-auto bg-white border border-slate-200 rounded-lg">
       <div className="flex justify-center">
@@ -18,10 +24,27 @@ const Header = () => {
           A beautiful & handcrafted monitor stand to reduce neck and eye strain.
         </p>
 
-        <div className="flex justify-center space-x-2 pb-8">
-        <Button text="Back this project" />
-        <IconBookmark className="cursor-pointer"/>
-      </div>
+        <div className="flex justify-between mx-10 pb-8">
+          <Button text="Back this project" />
+          <div onClick={toggleBookmark} className="flex items-center">
+            <span className={`absolute ml-24 hidden md:flex cursor-pointer ${isClicked ? "text-cyan-600" : ""}`}>
+              {isClicked ? "Bookmarked" : "Bookmark"}
+            </span>
+            {isClicked ? (
+              <IconBookmark
+                fillCircle="#3CB4AC"
+                fillPath="#fff"
+                className="cursor-pointer md:bg-slate-200 md:w-60 md:rounded-full"
+              />
+            ) : (
+              <IconBookmark
+                fillCircle="#2F2F2F"
+                fillPath="#B1B1B1"
+                className="cursor-pointer md:bg-slate-200 md:w-60 md:rounded-full"
+              />
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );
