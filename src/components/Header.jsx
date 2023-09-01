@@ -12,12 +12,12 @@ const Header = () => {
   };
 
   return (
-    <div className="w-11/12 mx-auto bg-white border border-slate-200 rounded-lg">
+    <div className="w-11/12 mx-auto bg-white border border-slate-200 rounded-lg lg:w-10/12 xl:w-9/12">
       <div className="flex justify-center">
         <img className="relative -top-6" src={logoSection} />
       </div>
       <div className="flex flex-col text-center space-y-6">
-        <p className="font-bold text-xl w-48 mx-auto">
+        <p className="font-bold text-xl w-48 mx-auto lg:w-full">
           Mastercraft Bamboo Monitor Riser
         </p>
         <p className="text-dark-gray">

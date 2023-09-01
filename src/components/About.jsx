@@ -24,8 +24,8 @@ const cards = [
 
 const About = () => {
   return (
-    <div className="w-11/12 mx-auto bg-white border border-slate-200 rounded-lg">
-      <div className="px-2 py-8">
+    <div className="w-11/12 mx-auto bg-white border border-slate-200 rounded-lg lg:w-10/12 xl:w-9/12">
+      <div className="px-6 py-8">
         <p className="font-bold text-lg mb-6">About this project</p>
         <div className="space-y-6 mb-6">
           <p className="text-dark-gray text-base">
