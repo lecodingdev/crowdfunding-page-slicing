@@ -3,13 +3,20 @@ import IconBookmark from "../assets/images/icon-bookmark";
 
 import logoSection from "../assets/images/logo-mastercraft.svg";
 import Button from "./Button";
+import Modal from "./Modal";
+
 
 const Header = () => {
   const [isClicked, setIsClicked] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleBookmark = () => {
     setIsClicked(!isClicked);
   };
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  }
 
   return (
     <div className="w-11/12 mx-auto bg-white border border-slate-200 rounded-lg lg:w-10/12 xl:w-9/12">
@@ -25,7 +32,10 @@ const Header = () => {
         </p>
 
         <div className="flex justify-between mx-10 pb-8">
-          <Button text="Back this project" />
+          <div onClick={toggleModal}>
+          <Button text="Back this project"  />
+          {isModalOpen && <Modal />}
+          </div>
           <div onClick={toggleBookmark} className="flex items-center">
             <span className={`absolute ml-24 hidden md:flex cursor-pointer ${isClicked ? "text-cyan-600" : ""}`}>
               {isClicked ? "Bookmarked" : "Bookmark"}
