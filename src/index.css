@@ -17,3 +17,8 @@
         @apply w-11/12 mx-auto;
     }
 }
+
+.no-hover {
+  transition: none !important;
+  color: black;
+}

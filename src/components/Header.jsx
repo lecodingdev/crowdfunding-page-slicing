@@ -14,10 +14,6 @@ const Header = () => {
     setIsClicked(!isClicked);
   };
 
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
-  }
-
   return (
     <div className="w-11/12 mx-auto bg-white border border-slate-200 rounded-lg lg:w-10/12 xl:w-9/12">
       <div className="flex justify-center">
@@ -32,9 +28,9 @@ const Header = () => {
         </p>
 
         <div className="flex justify-between mx-10 pb-8">
-          <div onClick={toggleModal}>
-          <Button text="Back this project"  />
-          {isModalOpen && <Modal />}
+          <div>
+          <Button text="Back this project" onClick={() => setIsModalOpen(true)} />
+          {isModalOpen && <Modal isVisible={isModalOpen} onClose={() => setIsModalOpen(false)} />}
           </div>
           <div onClick={toggleBookmark} className="flex items-center">
             <span className={`absolute ml-24 hidden md:flex cursor-pointer ${isClicked ? "text-cyan-600" : ""}`}>
